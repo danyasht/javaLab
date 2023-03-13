@@ -1,12 +1,12 @@
 package ua.lviv.iot.algo.part1.lab1;
+
 import lombok.*;
+
 @Setter
 @Getter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-
-
 public class Chainsaw {
     private String brand;
     private int power;
@@ -28,42 +28,27 @@ public class Chainsaw {
         if (fuelLevel >= fuelNeedForCutting) {
             fuelLevel -= fuelNeedForCutting;
             isWorking = true;
-        }
-        else if (fuelLevel < fuelNeedForCutting){
+        } else if (fuelLevel < fuelNeedForCutting) {
             isWorking = false;
         }
     }
 
-    public static Chainsaw getInstance(){
+    public static Chainsaw getInstance() {
         return instance;
     }
 
-    @Override
-    public String toString(){
-        return "Chainsaw brand: " +brand +", power: " +power +", fuel capacity: " +fuelTankCapacity +", fuel level: " +fuelLevel;
-    }
     public static void main(String[] args) {
-        Chainsaw woodChainsaw = new Chainsaw ("Dnipro-M", 2600, 100, 20, true);
-        woodChainsaw.start(true);
-        System.out.println(woodChainsaw.isWorking);
-        woodChainsaw.stop(false);
-        System.out.println(woodChainsaw.isWorking);
-        woodChainsaw.cutWood(2400);
-        System.out.println(woodChainsaw.isWorking);
-        woodChainsaw.cutWood(1000);
-        System.out.println(woodChainsaw.isWorking);
 
-        Chainsaw[] chainsaws = new Chainsaw[4];
-        chainsaws[0] = Chainsaw.getInstance();
-        chainsaws[1] = new Chainsaw();
-        chainsaws[2] = new Chainsaw("Stihl", 2700, 120, 30, true);
-        chainsaws[3] = Chainsaw.getInstance();
+        Chainsaw[] chainsaws = {
+                new Chainsaw(),
+                new Chainsaw("Stihl", 2700, 120, 30, true),
+                Chainsaw.getInstance(),
+                Chainsaw.getInstance()};
 
-        for (int i = 0; i < chainsaws.length; i++){
-            System.out.println("Chainsaw brand is " + chainsaws[i].getBrand());
+        for (var chainsaw : chainsaws) {
+            System.out.println(chainsaw);
         }
 
-        System.out.println(woodChainsaw.toString());
     }
 }
 
