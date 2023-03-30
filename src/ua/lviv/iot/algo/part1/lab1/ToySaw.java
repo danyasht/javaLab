@@ -4,9 +4,9 @@ import lombok.*;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @ToString(callSuper = true)
-public class Chainsaw extends Saw {
+@NoArgsConstructor
+public class ToySaw extends Saw {
     private double batteryCapacity;
     private String typeOfEngine;
 
@@ -25,7 +25,7 @@ public class Chainsaw extends Saw {
         return getWorking();
     }
 
-    public Chainsaw(String brand, double weight, int power, double batteryCapacity, String typeOfEngine, double hoursOfWork, boolean isWorking, double chainLength) {
+    public ToySaw(String brand, double weight, int power, double batteryCapacity, String typeOfEngine, double hoursOfWork, boolean isWorking, double chainLength) {
         super(brand, weight, power, hoursOfWork, isWorking, chainLength);
         this.batteryCapacity = batteryCapacity;
         this.typeOfEngine = typeOfEngine;
