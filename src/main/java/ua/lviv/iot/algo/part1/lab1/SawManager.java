@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SawManager {
-    private static List<Saw> saws = new LinkedList<>();
+    List<Saw> saws = new LinkedList<>();
 
     public List<Saw> findAllNoWorking() {
         return saws.stream().filter(saw -> saw.getWorking() == false).toList();
