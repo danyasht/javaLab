@@ -4,9 +4,9 @@ import lombok.*;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @ToString(callSuper = true)
-public class ElectricSaw extends Saw {
+@NoArgsConstructor
+public class UniversalSaw extends Saw {
     private double batteryCapacity;
     private String typeOfEngine;
 
@@ -15,17 +15,17 @@ public class ElectricSaw extends Saw {
         return (batteryCapacity / getPower());
     }
 
-    public boolean StartWork() {
+    public boolean startWork() {
         setWorking(true);
         return getWorking();
     }
 
-    public boolean StopWork() {
+    public boolean stopWork() {
         setWorking(false);
         return getWorking();
     }
 
-    public ElectricSaw(String brand, double weight, int power, double batteryCapacity, String typeOfEngine, double hoursOfWork, boolean isWorking, double chainLength) {
+    public UniversalSaw(String brand, double weight, int power, double batteryCapacity, String typeOfEngine, double hoursOfWork, boolean isWorking, double chainLength) {
         super(brand, weight, power, hoursOfWork, isWorking, chainLength);
         this.batteryCapacity = batteryCapacity;
         this.typeOfEngine = typeOfEngine;

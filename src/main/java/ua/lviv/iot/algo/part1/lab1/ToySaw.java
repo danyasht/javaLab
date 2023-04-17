@@ -15,12 +15,12 @@ public class ToySaw extends Saw {
         return (batteryCapacity / getPower());
     }
 
-    public boolean StartWork() {
+    public boolean startWork() {
         setWorking(true);
         return getWorking();
     }
 
-    public boolean StopWork() {
+    public boolean stopWork() {
         setWorking(false);
         return getWorking();
     }
