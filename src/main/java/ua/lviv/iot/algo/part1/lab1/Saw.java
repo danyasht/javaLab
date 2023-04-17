@@ -29,4 +29,11 @@ public abstract class Saw {
         return getTypeOfEngine();
     }
 
+    public String getHeaders(){
+        return "brand" + "," + "weight" + "," + "power" + "," + "hoursOfWork" + "," + "isWorking" + "," + "chainLength";
+    }
+
+    public String toCSV(){
+        return brand + "," + weight + "," + power + "," + hoursOfWork + "," + isWorking + "," + chainLength;
+    }
 }

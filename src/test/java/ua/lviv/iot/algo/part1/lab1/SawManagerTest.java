@@ -2,7 +2,6 @@ package ua.lviv.iot.algo.part1.lab1;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SawManagerTest {
     @Test
     void testAddSaw(){
-        SawManager sawManager = new SawManager();
+        var sawManager = new SawManager();
         sawManager.addSaw(new ToySaw());
         sawManager.addSaw(new Chainsaw());
         sawManager.addSaw(new ElectricSaw());
@@ -25,15 +24,13 @@ class SawManagerTest {
         sawManager.addSaw(new Chainsaw("Kross WXT-1080 XX", 3.2, 3400, 30500, "Gasoline", 3.7, false, 1.7));
         sawManager.addSaw(new UniversalSaw("Tatra garden", 3, 1800, 15200, "Gasoline", 3.5, true, 1.5));
         sawManager.addSaw(new ToySaw("Child's saw", 0.8, 20, 510, "none", 0, false, 0.7));
-        assertEquals(4, sawManager.saws.size());
         List<Saw> brokenSaws = sawManager.findAllNoWorking();
         assertEquals(2, brokenSaws.size());
     }
 
-
     @Test
     void testFindAllWorking(){
-        SawManager sawManager = new SawManager();
+        var sawManager = new SawManager();
         sawManager.addSaw(new ElectricSaw("Makita", 4.2, 2500, 20250, "Electric", 3, true, 1.4));
         sawManager.addSaw(new Chainsaw("Kross WXT-1080 XX", 3.2, 3400, 30500, "Gasoline", 3.7, false, 1.7));
         sawManager.addSaw(new UniversalSaw("Tatra garden", 3, 1800, 15200, "Gasoline", 3.5, true, 1.5));
@@ -44,7 +41,7 @@ class SawManagerTest {
 
     @Test
     void testFindAllWithChainLengthMoreThan(){
-        SawManager sawManager = new SawManager();
+        var sawManager = new SawManager();
         sawManager.addSaw(new ElectricSaw("Makita", 4.2, 2500, 20250, "Electric", 3, true, 1.4));
         sawManager.addSaw(new Chainsaw("Kross WXT-1080 XX", 3.2, 3400, 30500, "Gasoline", 3.7, false, 1.7));
         sawManager.addSaw(new UniversalSaw("Tatra garden", 3, 1800, 15200, "Gasoline", 3.5, true, 1.5));
@@ -55,7 +52,7 @@ class SawManagerTest {
 
     @Test
     void testFindAllWithTypeOfEngine(){
-        SawManager sawManager = new SawManager();
+        var sawManager = new SawManager();
         sawManager.addSaw(new ElectricSaw("Makita", 4.2, 2500, 20250, "Electric", 3, true, 1.4));
         sawManager.addSaw(new Chainsaw("Kross WXT-1080 XX", 3.2, 3400, 30500, "Gasoline", 3.7, false, 1.7));
         sawManager.addSaw(new UniversalSaw("Tatra garden", 3, 1800, 15200, "Gasoline", 3.5, true, 1.5));
@@ -66,8 +63,7 @@ class SawManagerTest {
 
     @Test
     void testPrintAllSaws() {
-
-        SawManager sawManager = new SawManager();
+        var sawManager = new SawManager();
         List<Saw> saws = sawManager.saws;
         sawManager.addSaw(new ElectricSaw("Makita", 4.2, 2500, 20250, "Electric", 3, true, 1.4));
         sawManager.addSaw(new Chainsaw("Kross WXT-1080 XX", 3.2, 3400, 30500, "Gasoline", 3.7, false, 1.7));

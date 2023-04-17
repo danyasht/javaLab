@@ -30,4 +30,12 @@ public class Chainsaw extends Saw {
         this.batteryCapacity = batteryCapacity;
         this.typeOfEngine = typeOfEngine;
     }
+
+    public String getHeaders() {
+        return super.getHeaders() + "," + "batteryCapacity" + "," + "typeOfEngine";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + batteryCapacity + "," + typeOfEngine;
+    }
 }
