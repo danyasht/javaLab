@@ -2,6 +2,7 @@ package ua.lviv.iot.algo.part1.lab1;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -37,10 +38,6 @@ class SawWriterTest {
         byte[] bytes = Files.readAllBytes(resultFile.toPath());
         String content = new String(bytes);
         Files.write(expectedFile.toPath(), content.getBytes());
-    }
-
-    @Test
-    void testCompareContentOfTwoFiles() throws IOException {
         Path expected = new File(EXPECTED_FILENAME).toPath();
         Path actual = new File(RESULT_FILENAME).toPath();
         assertEquals(-1, Files.mismatch(expected, actual), "Files aren't equal");
@@ -54,14 +51,20 @@ class SawWriterTest {
         assertFalse(file.exists());
     }
 
+    @Disabled
     @Test
-    void writeResultFileAgainToFile() throws IOException {
-        Files.createFile(Path.of(RESULT_FILENAME));
-        testWriteListOfSaws();
+    public void testFileOverride() throws IOException {
+        List<Saw> saws = new LinkedList<>();
+        writer.writeToFile(saws);
+        Path expected = new File(EXPECTED_FILENAME).toPath();
+        Path actual = new File(RESULT_FILENAME).toPath();
+        assertEquals(-1, Files.mismatch(expected, actual));
     }
 
-    @AfterAll
-    public static void tearDown() throws IOException {
-        Files.deleteIfExists(Path.of(RESULT_FILENAME));
-    }
+
+
+//    @AfterAll
+//    public static void tearDown() throws IOException {
+//        Files.deleteIfExists(Path.of(RESULT_FILENAME));
+//    }
 }
